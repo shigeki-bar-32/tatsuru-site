@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+  <title>自己紹介サイト</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/png">
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <div class="site">
+
+  <header class="header">
+    <div class="header__inner inner">
+      <h1 class="header__logo">
+        <a href="/">tatsuru</a>
+      </h1>
+  
+      <button
+        id="js-drawer-button"
+        type="button"
+        class="header__icon drawer-icon"
+        aria-controls="js-drawer-content"
+        aria-expanded="false"
+        aria-label="メニューを開く"
+      >
+        <span class="drawer-icon__bar"></span>
+        <span class="drawer-icon__bar"></span>
+        <span class="drawer-icon__bar"></span>
+      </button>
+  
+      <nav id="js-drawer-content" class="header__nav" aria-hidden="true" role="navigation">
+        <ul class="header__lists">
+          <li><a href="#about">About</a></li>
+          <li><a href="#lifestyle">Lifestyle</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  
+ <!-- HTML -->
+<section class="fv" role="region" aria-label="ファーストビュー">
+  <picture>
+    <source media="(min-width:768px)" srcset="images/sunset.png">
+    <img src="images/sunset-02.jpg" alt="涸沼の美しい夕日" />
+  </picture>
+
+  <div class="fv-text">
+    <h2>思いついたら動く、それがオレ流</h2>
+    <p>When inspiration strikes I move That's my way</p>
+  </div>
+</section>
+
+
+
+  
+  <!-- About Me -->
+  <section id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <h2 id="about-heading" class="section-heading is-gold">
+        <span class="section-heading-main">About</span>
+        <span class="section-heading-sub">ー 私について ー</span>
+      </h2>
+  
+      <div class="about-wrap">
+        <figure class="about-figure">
+          <img
+            src="images/tatsuru.jpg"
+            alt="プロフィール写真 — Shigeki Hotta"
+            class="about-img"
+            loading="lazy"
+            decoding="async"
+          />
+        
+        </figure>
+  
+        <div class="about-body">
+          <p class="about-text">
+            独学でWeb制作の学習をし、これまでに友人のカフェサイトと地元の建設会社サイトを担当しました。<br> 丁寧な実装を心がけ、クライアントが扱いやすいサイト作りを意識しています。
+          </p>
+  
+          <section class="profile-block">
+            <h3 class="profile-title">スキル</h3>
+            <ul class="profile-list">
+              <li><strong>開発：</strong>HTML / CSS / JavaScript / jQuery / WordPress / GitHub</li>
+              <li><strong>デザイン・編集：</strong>Figma / Canva / PhotoScape X</li>
+              <li><strong>動画編集：</strong>iMovie / DaVinci Resolve</li>
+            </ul>
+          </section>
+  
+          <section class="profile-block">
+            <h3 class="profile-title">制作実績</h3>
+            <ul class="profile-list">
+              <li>友人のカフェサイト（デザイン実装・公開）</li>
+              <li>地元の建設会社サイト（WordPress テーマ実装・コンテンツ組み込み）</li>
+            </ul>
+          </section>
+  
+          <section class="profile-block">
+            <h3 class="profile-title">パーソナル</h3>
+            <ul class="profile-list">
+              <li>趣味:ゴルフ ベストスコア 82</li>
+              <li>好きな作業：汚れた物を綺麗にする・壊れた物の再生・草刈りで整える作業</li>
+              <li>好物：肉じゃが、中華クラゲ</li>
+              <li>日常：庭に生えてる赤しそを煮込んでジュースにして飲むことがマイブーム</li>
+              <li>投資：株、投資信託、暗号通貨、不動産投資</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lifestyle -->
+  <section id="lifestyle" class="Lifestyle">
+    <div class="lifestyle__inner inner">
+      <div class="lifestyle__title">
+        <h2 id="about-heading" class="section-heading ">
+          <span class="section-heading-main">lifestyle</span>
+          <span class="section-heading-sub">ールーティンー</span>
+        </h2>
+      </div>
+  
+      <div class="lifestyle__slider">
+        <!-- ここを <swiper-container> に置き換え -->
+        <swiper-container
+          class="lifestyle-swiper"
+          navigation
+          pagination
+          loop="true"
+          space-between="16"
+          breakpoints='{
+            "768":  { "slidesPerView": 2, "spaceBetween": 24 },
+            "1024": { "slidesPerView": 3, "spaceBetween": 28 }
+          }'
+        >
+          <swiper-slide>
+            <div class="lifestyle-card">
+              <div class="lifestyle-card__image">
+                <img src="images/shino.jpg" alt="裏山で草刈りしてる" >
+              </div>
+              <h3 class="lifestyle-card__title">2ヶ月に一度定期的に草刈りしてます</h3>
+              <p class="lifestyle-card__title-main">草刈り作業は朝がおすすめ</p>
+              <p class="lifestyle-card__title-sub">ツナギに麦わら帽子が様になってきました</p>
+            </div>       
+          </swiper-slide>
+  
+          <swiper-slide>
+            <div class="lifestyle-card">
+              <div class="lifestyle-card__image">
+                <img src="images/crown.jpg" alt="港区イタリア街">
+              </div>
+              <h3 class="lifestyle-card__title"> MY CAR</h3>
+              <p class="lifestyle-card__title-main">東京港区のイタリア街</p>
+              <p class="lifestyle-card__title-sub">車の画像が映える場所でした</p>
+            </div>
+          </swiper-slide>
+  
+          <swiper-slide>
+            <div class="lifestyle-card">
+              <div class="lifestyle-card__image">
+                <video muted playsinline preload="metadata" controls>
+                  <source src="videos/golf-1.mp4" type="video/mp4">
+                </video>
+              </div>
+              <h3 class="lifestyle-card__title">栃木県のゴルフ場</h3>
+              <p class="lifestyle-card__title-main">スーパーゴルフカントリークラブ</p>
+              <p class="lifestyle-card__title-sub">料金的にもお手頃で良く通いました</p>
+            </div>
+          </swiper-slide>
+
+          <swiper-slide>
+            <div class="lifestyle-card">
+              <div class="lifestyle-card__image">
+                <video muted playsinline preload="metadata" controls>
+                  <source src="videos/ajisaimaturi.mp4" type="video/mp4">
+                </video>
+              </div>
+              <h3 class="lifestyle-card__title">茨城町</h3>
+              <p class="lifestyle-card__title-main">涸沼自然公園</p>
+              <p class="lifestyle-card__title-sub">あじさいまつり会場にて</p>
+            </div>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <div id="gallery" class="gallery">
+  <div class="inner">
+    <!-- <img src="images/gallery-01.webp" alt=""> -->
+    <img src="images/gallery-02.webp" alt="">
+    <img src="images/gallery-03.webp" alt="">
+    <img src="images/gallery-04.webp" alt="">
+    <img src="images/gallery-05.webp" alt="">
+    <img src="images/gallery-06.webp" alt="">
+    <img src="images/gallery-07.webp" alt="">
+    <img src="images/gallery-08.webp" alt="">
+    <img src="images/gallery-09.webp" alt="">
+    <img src="images/gallery-10.webp" alt="">
+
+    <!-- <img src="images/gallery-01.webp" alt=""> -->
+    <img src="images/gallery-02.webp" alt="">
+    <img src="images/gallery-03.webp" alt="">
+    <img src="images/gallery-04.webp" alt="">
+    <img src="images/gallery-05.webp" alt="">
+    <img src="images/gallery-06.webp" alt="">
+    <img src="images/gallery-07.webp" alt="">
+    <img src="images/gallery-08.webp" alt="">
+    <img src="images/gallery-09.webp" alt="">
+    <img src="images/gallery-10.webp" alt="">
+  </div>
+</div>
+
+<footer id="contact" class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <section class="footer-brand">
+      <h2 class="footer-title">Contact</h2>
+      <p class="footer-copy">Web制作 / フロントエンド</p>
+    </section>
+
+    <nav class="footer-nav" aria-label="フッターナビ">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#lifestyle">Lifestyle</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="footer-contact">
+      <ul>
+        <li><a href="mailto:kige.holly+af@gmail.com?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B&body=%E5%95%8F%E5%90%8D%3A%0D%0A%E5%86%85%E5%AE%B9%3A%0D%0A">
+          お問い合わせ
+        </a></li>
+        <li><a href="https://github.com/yourname" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://x.com/tatsuru20241125" target="_blank" rel="noopener">X (Twitter)</a></li>
+        <li><a href="https://instagram.com/yourname" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="footer-bottom">
+    <small>© <span id="year"></span> Shigeki Hotta</small>
+    <a href="#top" class="to-top" aria-label="ページ先頭へ">Top</a>
+  </div>
+</footer>
+
+  <!-- Swiper JS -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+  <script src="js/script.js" defer></script>
+</div>
+</body>
+</html>
