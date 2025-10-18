@@ -93,6 +93,7 @@ h3 {
 }
 
 :root {
+  --header-h: 72px;
   --max: 1100px;
   --space: 20px;
   --radius: 12px;
@@ -107,11 +108,11 @@ h3 {
    --------------------------- */
 /* 有効化用クラス（出し分けしたい場合） */
 .header {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  inset: 0 0 auto 0;
   width: 100%;
-  z-index: 20;
-  background: #fff;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .header__inner {
@@ -391,20 +392,57 @@ body > :not(.stars) {
   }
 }
 .fv {
+  min-height: calc(100svh - var(--header-h));
   position: relative;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: clip;
   width: 100%;
-  overflow: hidden;
 }
 
 .fv picture,
 .fv img {
-  display: block;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* 薄いオーバーレイ（テキストの可読性確保） */
+@media (max-width: 1024px) {
+  .fv {
+    min-height: calc(90svh - var(--header-h));
+  }
+  .fv .fv-text h2 {
+    font-size: clamp(26px, 3vw, 34px);
+  }
+  .fv .fv-text p {
+    font-size: clamp(15px, 1.8vw, 18px);
+  }
+}
+@media (max-width: 768px) {
+  .fv {
+    min-height: clamp(420px, 70svh - var(--header-h), 560px);
+  }
+  .fv picture > img {
+    object-position: 50% 35%;
+  }
+  .fv .fv-text {
+    padding: 20px;
+    max-width: 90vw;
+  }
+  .fv .fv-text h2 {
+    font-size: clamp(22px, 6vw, 28px);
+  }
+  .fv .fv-text p {
+    font-size: clamp(14px, 4.2vw, 16px);
+  }
+}
+:target {
+  scroll-margin-top: calc(var(--header-h) + 12px);
+}
+
 .fv::after {
   content: "";
   position: absolute;
@@ -417,16 +455,16 @@ body > :not(.stars) {
 /* テキストを中央に配置 */
 .fv-text {
   position: absolute;
-  inset: 0; /* 全領域をカバー */
+  inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* 垂直中央 */
-  align-items: center; /* 水平中央 */
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  z-index: 2; /* 画像より前面 */
-  padding: 2rem; /* 余白 */
+  z-index: 2;
+  padding: 2rem;
   color: #fff;
-  justify-content: flex-end; /* <- 中央から下寄せに変更 */
+  justify-content: flex-end;
 }
 
 /* 見出し・本文の見た目 */
@@ -445,6 +483,27 @@ body > :not(.stars) {
     padding-bottom: 6vh;
   }
 }
+@media (max-width: 600px) and (min-width: 1024px) {
+  .fv .fv-text h2 {
+    font-size: clamp(28px, 3vw, 42px);
+  }
+  .fv .fv-text p {
+    font-size: clamp(16px, 1.6vw, 20px);
+  }
+}
+.sp-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sp-only {
+    display: inline;
+  }
+}
+:target {
+  scroll-margin-top: calc(var(--header-h) + 12px);
+}
+
 .inner {
   padding: 0 40px;
 }
